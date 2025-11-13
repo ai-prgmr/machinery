@@ -7,6 +7,15 @@ export default function HeroSection() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
   return (
     <section className="relative aspect-9/16 md:aspect-video overflow-hidden">
       {/* Background Image */}
