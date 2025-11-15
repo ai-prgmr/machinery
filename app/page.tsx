@@ -134,7 +134,7 @@ export default function Home() {
         {/* Background Image Layer */}
         <div className="absolute inset-0">
           <Image
-            src={"/biw/Koerber.png"}
+            src={"/machinery/Koerber.png"}
             alt="Assorted iron and steel hardware products on a wooden background"
             fill
             quality={90}
