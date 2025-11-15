@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -15,7 +15,20 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export default function Home() {
-  const features = [
+  interface CategoryCardProps {
+    // Use React.ComponentType to type the component passed via the 'icon' prop
+    icon: React.ComponentType<{ className: string }>;
+    name: string;
+    description: string;
+  }
+
+  // Define the shape for the Feature objects
+  interface Feature {
+    title: string;
+    description: string;
+    icon: React.ComponentType<{ className: string }>;
+  }
+  const features: Feature[] = [
     {
       icon: Gauge,
       title: "Micro-Tolerance Alignment",
@@ -75,7 +88,11 @@ export default function Home() {
   ];
 
   // Helper component for the Category Card
-  const CategoryCard = ({ icon: Icon, name, description }) => (
+  const CategoryCard: React.FC<CategoryCardProps> = ({
+    icon: Icon,
+    name,
+    description,
+  }) => (
     <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-100">
       <Icon className="w-10 h-10 text-indigo-600 mb-4 bg-indigo-50 p-2 rounded-full" />
       <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
